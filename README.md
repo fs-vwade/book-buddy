@@ -1,6 +1,6 @@
 # Block 30 - Book Buddy
 
-Welcome to Book Buddy! Your task is to build out a functional client for [the Book Buddy API](https://fsa-book-buddy-b6e748d1380d.herokuapp.com/docs/). This API holds a catalog of books, which users can reserve or return once they've logged in.
+Welcome to Book Buddy! Your task is to build out a functional client for [the Book Buddy API](https://fsa-book-buddy-b6e748d1380d.herokuapp.com/docs/). This API holds a catalog of books, which users can reserve or return, once they are logged in.
 
 ## Requirements
 
@@ -36,6 +36,7 @@ While you are free to organize your project however you'd like to meet the requi
 `/books/:id` - details about the specific book
 
 - if the user is logged in, show a "Reserve" button for the user to check out this book
+- if the book is already reserved, the button should be disabled
 
 `/account` - profile page
 

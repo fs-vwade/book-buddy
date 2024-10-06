@@ -1,0 +1,17 @@
+{
+	"tabWidth": 2,
+	"useTabs": true,
+	"overrides": [{
+		"files": ".prettierrc",
+		"options": {
+			"parser": "json"
+		}
+	}, {
+		"files": ".md",
+		"options": {
+			"tabWidth": 3,
+			"useTabs": true
+		}
+
+	}]
+}

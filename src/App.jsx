@@ -1,10 +1,21 @@
-import bookLogo from "./assets/books.png";
+import { Outlet } from "react-router-dom";
+
+import Menu from "./features/Menu";
+import NavBar from "./features/NavBar";
 
 export default function App() {
-  return (
-    <>
-      <h1>Book Buddy</h1>
-      <img src={bookLogo} alt="Book Buddy" />
-    </>
-  );
+	return (
+		<>
+			<header>
+				<NavBar />
+			</header>
+			<menu className="slide-menu">
+				<Menu />
+			</menu>
+			<main>
+				<Outlet />
+			</main>
+			<></>
+		</>
+	);
 }

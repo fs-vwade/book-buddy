@@ -1,0 +1,28 @@
+src
+├── App.jsx
+├── assets
+│   └── books.png
+├── components
+│   ├── Auth
+│   │   ├── LoginForm.jsx
+│   │   └── RegisterForm.jsx
+│   ├── Book.jsx
+│   ├── BookList
+│   │   ├── BookItem.jsx
+│   │   └── BookList.jsx
+│   └── Profile
+│       └── ProfilePage.jsx
+├── features
+│   ├── bookSlice.js
+│   ├── Layout.jsx
+│   ├── Main.jsx
+│   ├── Menu.jsx
+│   └── NavBar.jsx
+├── index.css
+├── main.jsx
+├── pages
+└── store
+    ├── api.js
+    └── index.js
+
+9 directories, 17 files

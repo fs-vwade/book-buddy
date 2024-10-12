@@ -4,6 +4,7 @@ import Menu from "./features/ui/Menu";
 import NavBar from "./features/ui/NavBar";
 
 export default function App() {
+	const tree =
 	return (
 		<>
 			<header>

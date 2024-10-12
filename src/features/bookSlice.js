@@ -2,39 +2,69 @@ import api from "../store/api";
 
 const bookApi = api.injectEndpoints({
 	endpoints: (build) => ({
+		getUser: build.query({
+			query: (token) => ({
+				url: `users/me`,
+				method: `GET`,
+				headers: {
+					"Content-Type": `application/json`,
+					Authorization: `Bearer ${token}`,
+				},
+			}),
+			providesTags: [`User`],
+		}),
+		addUser: build.mutation({
+			query: (user) => ({
+				url: `users/register`,
+				method: `POST`,
+				headers: { "Content-Type": `application/json` },
+				body: {
+					firstname: user.firstname,
+					lastname: user.lastname,
+					email: user.email,
+					password: user.password,
+				},
+			}),
+			invalidatesTags: [`User`],
+		}),
+		loginUser: build.mutation({
+			query: (login) => ({
+				url: `users/login`,
+				method: `POST`,
+				headers: { "Content-Type": `application/json` },
+				body: {
+					email: login.email,
+					password: login.password,
+				},
+			}),
+			invalidatesTags: [`User`],
+		}),
 		getBooks: build.query({
 			query: () => ({
-				url: `/api/`,
-				method: "PATCH",
-			}),
-			providesTags: [`Book`],
-			transformResponse: (response) => response.data,
-		}),
-		getReservations: build.query({
-			query: () => ({
-				url: `/api/reservations`,
-				method: `GET`,
-				headers: { "Content-Type": `application/json` },
+				url: `books`,
+				method: "GET",
 			}),
 			providesTags: [`Book`],
 		}),
 		getBook: build.query({
-			query: (id) => `events/${id}`,
+			query: (id) => `books/${id}`,
 			providesTags: [`Book`],
-			transformResponse: (response) => response.data,
 		}),
-		addBook: build.mutation({
-			query: (party) => ({
-				url: `events/`,
-				method: "POST",
-				body: party,
+		getReservations: build.query({
+			query: () => `reservations`,
+			providesTags: [`Book`],
+		}),
+		reserveBook: build.mutation({
+			query: (id) => ({
+				url: `reservations/${id}`,
+				headers: { "Content-Type": `application/json` },
+				body: { available: false },
 			}),
 			invalidatesTags: [`Book`],
-			transformErrorResponse: (response) => response.error.message,
 		}),
-		deleteBook: build.mutation({
+		deleteReservation: build.mutation({
 			query: (id) => ({
-				url: `events/${id}`,
+				url: `reservations/${id}`,
 				method: "DELETE",
 			}),
 			invalidatesTags: [`Book`],
@@ -43,8 +73,11 @@ const bookApi = api.injectEndpoints({
 });
 
 export const {
+	useAddUserMutation,
+	useLoginUserMutation,
 	useGetBooksQuery,
 	useGetBookQuery,
-	useAddBookMutation,
-	useDeleteBookMutation,
+	useReserveBookMutation,
+	useGetReservationsQuery,
+	useDeleteReservationMutation,
 } = bookApi;

@@ -3,14 +3,7 @@ import api from "../store/api";
 const bookApi = api.injectEndpoints({
 	endpoints: (build) => ({
 		getUser: build.query({
-			query: (token) => ({
-				url: `users/me`,
-				method: `GET`,
-				headers: {
-					"Content-Type": `application/json`,
-					Authorization: `Bearer ${token}`,
-				},
-			}),
+			query: () => `users/me`,
 			providesTags: [`User`],
 		}),
 		addUser: build.mutation({

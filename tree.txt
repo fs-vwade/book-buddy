@@ -1,28 +1,44 @@
-src
-├── App.jsx
-├── assets
-│   └── books.png
-├── components
-│   ├── Auth
-│   │   ├── LoginForm.jsx
-│   │   └── RegisterForm.jsx
-│   ├── Book.jsx
-│   ├── BookList
-│   │   ├── BookItem.jsx
-│   │   └── BookList.jsx
-│   └── Profile
-│       └── ProfilePage.jsx
-├── features
-│   ├── bookSlice.js
-│   ├── Layout.jsx
-│   ├── Main.jsx
-│   ├── Menu.jsx
-│   └── NavBar.jsx
-├── index.css
-├── main.jsx
-├── pages
-└── store
-    ├── api.js
-    └── index.js
+.
+├── index.html
+├── package.json
+├── package-lock.json
+├── pseudo.md
+├── public
+│   └── favicon.ico
+├── README.md
+├── src
+│   ├── App.jsx
+│   ├── assets
+│   │   └── books.png
+│   ├── components
+│   │   ├── Auth
+│   │   │   ├── LoginForm.jsx
+│   │   │   └── RegisterForm.jsx
+│   │   ├── BookList
+│   │   │   ├── BookItem.jsx
+│   │   │   └── BookList.jsx
+│   │   ├── Books.jsx
+│   │   └── Profile
+│   │       └── ProfilePage.jsx
+│   ├── features
+│   │   ├── auth
+│   │   │   └── authSlice.js
+│   │   ├── books
+│   │   │   └── bookSlice.js
+│   │   ├── Main.jsx
+│   │   └── ui
+│   │       ├── Layout.jsx
+│   │       ├── Menu.jsx
+│   │       └── NavBar.jsx
+│   ├── index.css
+│   ├── main.jsx
+│   ├── pages
+│   ├── router
+│   │   └── index.js
+│   └── store
+│       ├── api.js
+│       └── index.js
+├── tree.txt
+└── vite.config.js
 
-9 directories, 17 files
+15 directories, 27 files

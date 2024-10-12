@@ -1,7 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const COHORT_CODE = "🍍";
-const API_URL = `https://fsa-book-buddy-b6e748d1380d.herokuapp.com/`;
+const API_ENTRY = `api/`;
+const API_URL = `https://fsa-book-buddy-b6e748d1380d.herokuapp.com/${API_ENTRY}`;
 
 const api = createApi({
 	baseQuery: fetchBaseQuery({

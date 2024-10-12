@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 
-import Menu from "./features/Menu";
-import NavBar from "./features/NavBar";
+import Menu from "./features/ui/Menu";
+import NavBar from "./features/ui/NavBar";
 
 export default function App() {
 	return (
@@ -15,6 +15,7 @@ export default function App() {
 			<main>
 				<Outlet />
 			</main>
+			<footer></footer>
 			<></>
 		</>
 	);

@@ -27,6 +27,17 @@ export const loginUser = createAsyncThunk(
 	}
 );
 
+const authApi = api.injectEndpoints({
+	endpoints: (build) => ({
+		login: build.mutation({
+			query: (user) => ({
+				url: "/api",
+			}),
+		}),
+		register: build.mutation({}),
+	}),
+});
+
 const authSlice = createSlice({
 	name: "auth",
 	initialState: {

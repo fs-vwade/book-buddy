@@ -1,4 +1,4 @@
-import bookLogo from "../assets/books.png";
+import bookLogo from "../../assets/books.png";
 
 export default function NavBar() {
 	return (

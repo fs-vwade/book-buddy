@@ -1,0 +1,30 @@
+@base_url = https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api
+
+###
+GET {{base_url}}/books
+
+###
+POST {{base_url}}/users/register
+Content-Type: Application/JSON
+
+{
+	"email": "thefoo@baz.com",
+	"password": "barbaz"
+}
+
+###
+# @name nameOfRequest
+POST {{base_url}}/users/login
+Content-Type: application/json
+
+{
+	"email": "thefoo@baz.com",
+	"password": "barbaz"
+}
+
+###
+@tokenLocal = {{nameOfRequest.response.body.token}}
+
+###
+GET {{base_url}}/users/me
+Authorization: Bearer {{tokenLocal}}

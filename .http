@@ -1,16 +1,26 @@
 @base_url = https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api
+@user_email="thefoo@baz.com"
+@user_pass="password": "barbaz"
+@user2_email="email":"thefoo3@baz.com"
+@user2_pass={{user_pass}}
 
 ###
 GET {{base_url}}/books
 
 ###
+# @name registrationResponse
 POST {{base_url}}/users/register
 Content-Type: Application/JSON
 
 {
-	"email": "thefoo@baz.com",
-	"password": "barbaz"
+	"email": "thebarbaz@foo.com",
+	"password": "thenewfoo"
 }
+
+###
+@registrationInfo = {{registrationResponse.response.body}}
+@registrationToken= {{registrationResponse.response.body.token}}
+@registrationUser= {{registrationResponse.response.body.user}}
 
 ###
 # @name nameOfRequest

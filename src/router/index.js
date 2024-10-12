@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Books from "../components/Books";
 import Account from "../components/Account";
+import BookSelection from "../components/BookList/BookItem";
 
 // create router tree
 const router = createBrowserRouter([
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "/books/:id",
-				element: <BookSelection id={/* what to do to get id here... */} />,
+				element: <BookSelection />,
 			},
 			{
 				path: "/account",

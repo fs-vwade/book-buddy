@@ -4,8 +4,13 @@
 @user2_email="email":"thefoo3@baz.com"
 @user2_pass={{user_pass}}
 
+@book_id = 18
+
 ###
 GET {{base_url}}/books
+
+### get a single book
+GET {{base_url}}/books/{{book_id}}
 
 ###
 # @name registrationResponse

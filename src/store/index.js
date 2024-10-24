@@ -7,6 +7,7 @@ const store = configureStore({
 		[api.reducerPath]: api.reducer,
 	},
 	middleware: (getDefaultMiddleware) =>
+		// produces an array of middleware from the api
 		getDefaultMiddleware().concat(api.middleware),
 });
 

@@ -27,7 +27,7 @@ export default function Books() {
 	}
 
 	return (
-		<books className="book-list">
+		<section className="book-list">
 			<h1>Book Library</h1>
 			{books.map((book, idx) => (
 				<div className="book" key={book.id}>
@@ -52,6 +52,6 @@ export default function Books() {
 					</div>
 				</div>
 			))}
-		</books>
+		</section>
 	);
 }

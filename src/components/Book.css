@@ -1,8 +1,6 @@
 .book {
 	display: flex;
 	flex-direction: column;
-	border-radius: 1rem;
-	border-bottom: 1rem solid coral;
 }
 
 .details.odd {
@@ -22,13 +20,12 @@
 }
 .book .details:hover {
 	background-color: antiquewhite;
-	cursor: pointer;
 }
 
 .book .cover {
 	width: 40rem;
 	height: 40rem;
-	flex: 1 0 auto;
+	flex: 1 0 50%;
 	background-size: contain;
 	background-position: center;
 	background-repeat: no-repeat;

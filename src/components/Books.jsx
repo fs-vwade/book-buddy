@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useGetBooksQuery } from "../features/bookSlice";
 import {
 	useGetBookQuery,
@@ -12,7 +12,8 @@ import {
  **	we will implement the local components here
  **	- to avoid creating unnecessary files/includes
  **/
-function Book() {
+function Book(/*{ id }*/) {
+	// I have a new conundrum. To use the same component that renders books in all places that render books, or to keep each component separate. I'd prefer to not rewrite the same thing.
 	/**
 	 * The requirements indicate that a book can be selected.
 	 * The intended path for this would be "/books/:id"
@@ -43,26 +44,42 @@ function Book() {
 	}
 
 	return (
-		<div className="book-detail">
-			<div>
-				<h2>{book.title}</h2>
-				<div className="book-img">
-					<img src={book.coverimage} alt={`${book.title} by ${book.author}`} />
+		<article className="book">
+			{/*Flex col/down*/}
+			<div className="details">
+				{/*Flex row/right*/}
+				{/**
+				 * We only need to display 4 items.
+				 * - The title
+				 * - Author
+				 * - Description
+				 * - Cover image
+				 */}
+				<div>
+					<h2 className="title">{book.title}</h2>
+					<p className="author">{book.author}</p>
+					<p className="description">{book.description}</p>
+				</div>
+				<div>
+					<img
+						className="book-img"
+						src={book.coverimage}
+						alt={`${book.title} by ${book.author}`}
+					/>
 				</div>
 			</div>
-			<p>{book.description}</p>
-			<p>Author: {book.author}</p>
 			{isAuthenticated ?? (
-				<button className="reserve-book" onSubmit={makeReservation}>
+				<button className="reserve" onSubmit={makeReservation}>
 					Reserve Book
 				</button>
 			)}
-		</div>
+		</article>
 	);
 }
 
 export default function Books() {
 	const { data: books, isLoading, error } = useGetBooksQuery();
+	const nav = useNavigate();
 
 	if (isLoading)
 		return (
@@ -77,32 +94,32 @@ export default function Books() {
 			</error>
 		);
 
+	function userSelect(id) {
+		nav(`/${id}`);
+	}
+
 	return (
 		<books className="book-list">
 			<h1>Book Library</h1>
-			{books.map((book, idx) => {
-				return (
-					<div className="book-list-book" key={idx}>
-						<top className="book-top">
-							<left className="book-left">
-								<h2>Title: {book.title}</h2>
-								<p>by {book.author}</p>
-							</left>
-							<right className="book-right">
-								<img
-									src={book.coverimage}
-									alt={`${book.title} by ${book.author}`}
-								/>
-							</right>
-						</top>
-						<bottom className="book-bottom">
-							<p>
-								Description <div>{book.description}</div>
-							</p>
-						</bottom>
+			{books.map((book, idx) => (
+				<div className="book" key={idx} onClick={() => userSelect(book.id)}>
+					{/*Flex col/down*/}
+					<div className="details">
+						<div className="left">
+							<img
+								className="book-img"
+								src={book.coverimage}
+								alt={`${book.title} by ${book.author}`}
+							/>
+						</div>
+						<div className="right">
+							<h2 className="title">{book.title}</h2>
+							<p className="author">{book.author}</p>
+							<p className="description">{book.description}</p>
+						</div>
 					</div>
-				);
-			})}
+				</div>
+			))}
 		</books>
 	);
 }

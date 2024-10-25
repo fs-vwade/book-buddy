@@ -5,14 +5,14 @@ import {
 	useGetBookQuery,
 	useReserveBookMutation,
 	useDeleteReservationMutation,
-} from "../../features/bookSlice";
+} from "../features/bookSlice";
 
 /**	I've opted for fewer files during core development ->
  **
  **	we will implement the local components here
  **	- to avoid creating unnecessary files/includes
  **/
-function Book(/*{ id }*/) {
+function Book({ id }) {
 	// I have a new conundrum. To use the same component that renders books in all places that render books, or to keep each component separate. I'd prefer to not rewrite the same thing.
 	/**
 	 * The requirements indicate that a book can be selected.
@@ -29,7 +29,6 @@ function Book(/*{ id }*/) {
 	 * }
 	 * At this point, putting everything together becomes a blur
 	 */
-	const { id } = useParams();
 	const { data: book, isLoading, error } = useGetBookQuery(id);
 	const [createReservation] = useReserveBookMutation();
 	const [deleteReservation] = useDeleteReservationMutation();

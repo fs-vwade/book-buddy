@@ -29,12 +29,15 @@ export default function Books() {
 	return (
 		<books className="book-list">
 			<h1>Book Library</h1>
-			{books.map((book) => (
-				<div className="book" key={book.id} onClick={() => userSelect(book.id)}>
+			{books.map((book, idx) => (
+				<div className="book" key={book.id}>
 					{/*Flex col/down*/}
-					<div className="details">
+					<div
+						className={`preview ${idx % 2 ? "odd" : "even"}`}
+						onClick={() => userSelect(book.id)}
+					>
 						<div
-							className="cover left"
+							className={`cover left`}
 							style={{ backgroundImage: `url(${book.coverimage})` }}
 							alt={`${book.title} by ${book.author}`}
 						/>

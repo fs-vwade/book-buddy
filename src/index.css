@@ -8,6 +8,7 @@
 
 html {
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	scrollbar-width: none;
 }
 
 body {
@@ -27,7 +28,7 @@ body {
 	font-size: var(--text-size);
 	line-height: var(--text-size);
 	margin: 0;
-	margin-right: var(--margin-h1);
+	margin-left: var(--margin-h1);
 }
 .logo img {
 	height: 100%;

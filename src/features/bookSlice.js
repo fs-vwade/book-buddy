@@ -13,6 +13,7 @@ const bookApi = api.injectEndpoints({
 		getBook: build.query({
 			query: (id) => `books/${id}`,
 			providesTags: [`Book`],
+			transformResponse: (response) => response.book,
 		}),
 		getReservations: build.query({
 			query: () => `reservations`,

@@ -1,32 +1,42 @@
 .book {
+	display: flex;
+	flex-direction: column;
 	border-radius: 1rem;
 	border-bottom: 1rem solid coral;
 }
 
-.book .preview.odd {
+.details.odd {
 	background-color: whitesmoke;
 }
-.book .preview.even {
+.details.even {
 	background-color: snow;
 }
 
-.book .preview {
+.book .details {
+	display: flex;
+	flex-direction: row;
 	padding: 1rem;
 	display: flex;
 	align-items: center;
 	transition-duration: 100ms;
 }
-.book .preview:hover {
+.book .details:hover {
 	background-color: antiquewhite;
 	cursor: pointer;
 }
 
-.book .preview .cover.left {
-	width: 10rem;
-	height: 10rem;
+.book .cover {
+	width: 40rem;
+	height: 40rem;
 	flex: 1 0 auto;
 	background-size: contain;
 	background-position: center;
 	background-repeat: no-repeat;
 	margin: 1rem;
+}
+
+.book .cover img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
 }

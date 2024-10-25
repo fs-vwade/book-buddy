@@ -8,6 +8,8 @@ import {
 	useDeleteReservationMutation,
 } from "../features/bookSlice";
 
+import "./Book.css";
+
 export default function Book() {
 	// I have a new conundrum. To use the same component that renders books in all places that render books, or to keep each component separate. I'd prefer to not rewrite the same thing.
 	/**
@@ -30,7 +32,7 @@ export default function Book() {
 	const [createReservation] = useReserveBookMutation();
 	const [deleteReservation] = useDeleteReservationMutation();
 
-	const { isAuthenticated, token } = useSelector((state) => state.auth);
+	//const { isAuthenticated, token } = useSelector((state) => state.auth);
 
 	if (isLoading) return <p>Loading book selection...</p>;
 	if (error) return <p>Could not load book. Reason: {error.message}</p>;
@@ -56,7 +58,7 @@ export default function Book() {
 					<p className="author">{book.author}</p>
 					<p className="description">{book.description}</p>
 				</div>
-				<div>
+				<div className="cover">
 					<img
 						className="book-img"
 						src={book.coverimage}
@@ -64,11 +66,7 @@ export default function Book() {
 					/>
 				</div>
 			</div>
-			{isAuthenticated ?? (
-				<button className="reserve" onSubmit={makeReservation}>
-					Reserve Book
-				</button>
-			)}
+			{/*{isAuthenticated ?? (<button className="reserve" onSubmit={makeReservation}>Reserve Book</button>)}*/}
 		</article>
 	);
 }

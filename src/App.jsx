@@ -9,7 +9,7 @@ export default function App() {
 			<header>
 				<NavBar />
 			</header>
-			<menu className="slide-menu">
+			<menu className="menu">
 				<Menu />
 			</menu>
 			<main>

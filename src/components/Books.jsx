@@ -12,7 +12,7 @@ import {
  **	we will implement the local components here
  **	- to avoid creating unnecessary files/includes
  **/
-function Book({ id }) {
+export function Book(/*{ id }*/) {
 	// I have a new conundrum. To use the same component that renders books in all places that render books, or to keep each component separate. I'd prefer to not rewrite the same thing.
 	/**
 	 * The requirements indicate that a book can be selected.
@@ -29,6 +29,7 @@ function Book({ id }) {
 	 * }
 	 * At this point, putting everything together becomes a blur
 	 */
+	const { id } = useParams();
 	const { data: book, isLoading, error } = useGetBookQuery(id);
 	const [createReservation] = useReserveBookMutation();
 	const [deleteReservation] = useDeleteReservationMutation();
@@ -80,18 +81,8 @@ export default function Books() {
 	const { data: books, isLoading, error } = useGetBooksQuery();
 	const nav = useNavigate();
 
-	if (isLoading)
-		return (
-			<loading>
-				<p>Loading books...</p>
-			</loading>
-		);
-	if (error)
-		return (
-			<error>
-				<p>Could not load books. Reason: {error.message}</p>
-			</error>
-		);
+	if (isLoading) return <p>Loading books...</p>;
+	if (error) return <p>Could not load books. Reason: {error.message}</p>;
 
 	function userSelect(id) {
 		nav(`/${id}`);

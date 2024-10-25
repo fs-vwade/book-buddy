@@ -4,7 +4,7 @@
 @user2_email="email":"thefoo3@baz.com"
 @user2_pass={{user_pass}}
 
-@book_id = 18
+@book_id = 1
 
 ###
 GET {{base_url}}/books

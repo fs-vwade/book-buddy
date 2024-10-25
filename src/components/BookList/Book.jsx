@@ -6,7 +6,7 @@ import {
 	useDeleteReservationMutation,
 } from "../../features/bookSlice";
 
-const Book = () => {
+const BookItem = () => {
 	const { id } = useParams();
 	const { data: book, error, isLoading } = useGetBookQuery(id);
 	const [deleteReservation] = useDeleteReservationMutation();
@@ -23,4 +23,4 @@ const Book = () => {
 	);
 };
 
-export default Book;
+export default BookItem;

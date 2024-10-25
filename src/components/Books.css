@@ -1,0 +1,14 @@
+.book .details {
+	display: flex;
+	align-items: center;
+}
+
+.cover.left {
+	width: 10rem;
+	height: 10rem;
+	flex: 1 0 auto;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	margin: 1rem;
+}

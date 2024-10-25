@@ -57,6 +57,10 @@ export default function Book() {
 					<h2 className="title">{book.title}</h2>
 					<p className="author">{book.author}</p>
 					<p className="description">{book.description}</p>
+					<b className={book.available ? "available" : "unavailable"}>
+						{(book.available && "Available") || "Unavailable"}
+					</b>
+					{/*{isAuthenticated ?? (<button className="reserve" onSubmit={makeReservation}>Reserve Book</button>)}*/}
 				</div>
 				<div className="cover">
 					<img
@@ -66,7 +70,6 @@ export default function Book() {
 					/>
 				</div>
 			</div>
-			{/*{isAuthenticated ?? (<button className="reserve" onSubmit={makeReservation}>Reserve Book</button>)}*/}
 		</article>
 	);
 }
